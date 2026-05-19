@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, X, Zap } from 'lucide-react';
 import { Logo } from '../components/Logo';
@@ -14,6 +14,22 @@ export const CatalogScreen = ({ initialCategoryId, onProductSelect }: CatalogScr
   const [activeCategoryId, setActiveCategoryId] = useState(initialCategoryId ?? CATEGORIES[0].id);
   const [searchQuery, setSearchQuery] = useState('');
   const [imagesLoaded, setImagesLoaded] = useState<Set<string>>(new Set());
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    return () => {
+      if (el) sessionStorage.setItem('catalog-scroll', String(el.scrollTop));
+    };
+  }, []);
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem('catalog-scroll');
+    if (saved && containerRef.current) {
+      containerRef.current.scrollTop = Number(saved);
+    }
+  }, []);
 
   const handleImageLoad = (id: string) =>
     setImagesLoaded(prev => new Set([...prev, id]));
@@ -31,7 +47,7 @@ export const CatalogScreen = ({ initialCategoryId, onProductSelect }: CatalogScr
   }, [searchQuery, activeCategoryId, isSearching]);
 
   return (
-    <div className="min-h-[100dvh] bg-white pb-nav">
+    <div ref={containerRef} className="h-[100dvh] bg-white pb-nav overflow-y-auto">
       {/* Fixed header */}
       <header className="shell-fixed top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-50 px-6 py-5 flex justify-between items-center">
         <div className="flex items-center gap-3">
