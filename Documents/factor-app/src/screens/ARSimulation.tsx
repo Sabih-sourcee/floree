@@ -18,14 +18,26 @@ export const ARSimulation = ({ product, onClose }: ARSimulationProps) => {
 
   return (
     <div className="fixed inset-0 z-[100] bg-black overflow-hidden">
-      {/* AR background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=2000"
-          alt="room"
-          className="w-full h-full object-cover opacity-75"
+      {/* AR background — scanning grid */}
+      <div className="absolute inset-0 z-0 bg-[#060d0d]">
+        <div
+          className="absolute inset-0 opacity-[0.18]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(0,176,203,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(0,176,203,0.6) 1px, transparent 1px)',
+            backgroundSize: '44px 44px',
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
+        <motion.div
+          animate={{ opacity: [0.06, 0.14, 0.06] }}
+          transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'radial-gradient(ellipse 60% 40% at 50% 60%, rgba(0,176,203,0.18) 0%, transparent 70%)',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
       </div>
 
       {/* Header */}

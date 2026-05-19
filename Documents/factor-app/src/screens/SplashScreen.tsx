@@ -57,7 +57,7 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           transition={{ delay: 1.6, duration: 0.6 }}
           className="font-ui text-[11px] text-white/40 uppercase tracking-[0.4em]"
         >
-          Illuminate Excellence
+          Lahore · Pakistan
         </motion.p>
       </motion.div>
     </div>

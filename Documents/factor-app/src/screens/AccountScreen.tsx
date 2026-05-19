@@ -1,4 +1,4 @@
-import { Globe, Mail, Phone } from 'lucide-react';
+import { Globe, Mail } from 'lucide-react';
 import { Logo } from '../components/Logo';
 
 export const AccountScreen = () => (
@@ -26,7 +26,6 @@ export const AccountScreen = () => (
         {[
           { icon: Globe, label: 'Website', value: 'www.factorled.pk' },
           { icon: Mail, label: 'Email', value: 'info@factorled.pk' },
-          { icon: Phone, label: 'Phone', value: '+92 300 0000000' },
         ].map(({ icon: Icon, label, value }) => (
           <div key={label} className="flex items-center gap-4 p-5 bg-gray-50 rounded-2xl">
             <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center">

@@ -4,24 +4,40 @@ import { ChevronRight } from 'lucide-react';
 
 const SLIDES = [
   {
-    title: 'Luminous Precision',
-    desc: 'Architectural lighting that redefines space and depth with industrial excellence.',
-    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=90&w=1200',
-    accent: 'Quality',
+    title: 'Built For Pakistan',
+    desc: 'From street lights to downlights — 16 product categories engineered for Pakistan\'s climate and construction standards.',
+    img: '/Assets/events/final1.jpg.jpeg',
+    accent: 'Local',
   },
   {
-    title: 'See it Before You Buy',
-    desc: 'Experience products in your own space using our advanced AR visualization tool.',
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=90&w=1200',
-    accent: 'Innovation',
+    title: 'See It In Your Space',
+    desc: 'Place any product in your room before you buy. No guesswork — just a clear picture of how it fits.',
+    img: '/Assets/events/final2.jpg.jpeg',
+    accent: 'AR Preview',
   },
   {
-    title: 'Crafted Authority',
-    desc: 'Join thousands of architects and designers choosing Factor for their boldest projects.',
-    img: 'https://images.unsplash.com/photo-1518005020451-aba3a5a401c4?auto=format&fit=crop&q=90&w=1200',
-    accent: 'Trust',
+    title: 'Trusted By Builders',
+    desc: 'Contractors, architects, and interior designers across Pakistan choose Factor LED for every project.',
+    img: '/Assets/events/final3.jpg.jpeg',
+    accent: 'Trusted',
   },
 ];
+
+const WordReveal = ({ text, step }: { text: string; step: number }) => (
+  <h2 className="font-headline text-4xl font-black text-black uppercase tracking-tighter leading-none mb-4 overflow-hidden">
+    {text.split(' ').map((word, i) => (
+      <motion.span
+        key={`${step}-${i}`}
+        initial={{ y: '110%', opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.1 + i * 0.09, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="inline-block mr-[0.25em] last:mr-0"
+      >
+        {word}
+      </motion.span>
+    ))}
+  </h2>
+);
 
 export const Onboarding = ({ onNext }: { onNext: () => void }) => {
   const [step, setStep] = useState(0);
@@ -35,14 +51,14 @@ export const Onboarding = ({ onNext }: { onNext: () => void }) => {
         <AnimatePresence mode="wait">
           <motion.div
             key={step}
-            initial={{ opacity: 0, scale: 1.08 }}
+            initial={{ opacity: 0, scale: 1.06 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.1 }}
+            transition={{ duration: 1.0 }}
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url('${SLIDES[step].img}')` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/80" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-black/80" />
           </motion.div>
         </AnimatePresence>
 
@@ -55,7 +71,7 @@ export const Onboarding = ({ onNext }: { onNext: () => void }) => {
         </div>
 
         {/* Step indicators */}
-        <div className="absolute top-16 left-0 right-0 flex justify-center gap-2 z-10">
+        <div className="absolute top-16 left-0 right-0 flex justify-center gap-2 z-10 pointer-events-none">
           {SLIDES.map((_, i) => (
             <motion.div
               key={i}
@@ -71,7 +87,7 @@ export const Onboarding = ({ onNext }: { onNext: () => void }) => {
           key={`tag-${step}`}
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.25 }}
           className="absolute bottom-12 left-8 z-10"
         >
           <span className="font-ui text-[10px] font-black text-brand uppercase tracking-[0.3em] bg-brand/10 border border-brand/30 px-3 py-1.5 rounded-full">
@@ -88,11 +104,9 @@ export const Onboarding = ({ onNext }: { onNext: () => void }) => {
             initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -30, opacity: 0 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.4 }}
           >
-            <h2 className="font-headline text-4xl font-black text-black uppercase tracking-tighter leading-none mb-4">
-              {SLIDES[step].title}
-            </h2>
+            <WordReveal text={SLIDES[step].title} step={step} />
             <p className="font-ui text-gray-500 leading-relaxed text-base">
               {SLIDES[step].desc}
             </p>
