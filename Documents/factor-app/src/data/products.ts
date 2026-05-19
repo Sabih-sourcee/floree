@@ -1,7 +1,5 @@
-// src/data/products.ts
-import { Category, Product } from '../types';
+﻿import { Category, Product } from '../types';
 
-// Base path for assets served from /public
 const B = '/Assets/product pics/Organzied';
 
 export const CATEGORIES: Category[] = [
@@ -32,7 +30,7 @@ export const CATEGORIES: Category[] = [
     products: [
       { id: 'mercury-circle', name: 'Mercury Circle Series', categoryId: 'mercury-series', categoryName: 'Mercury Series', images: [`${B}/Mercury Series/Mercury Circle.png`], description: 'Circular surface-mounted Mercury light with elegant form and even illumination.' },
       { id: 'mercury-square', name: 'Mercury Square Series', categoryId: 'mercury-series', categoryName: 'Mercury Series', images: [`${B}/Mercury Series/Mercury Circle.png`], description: 'Square-profile Mercury light for modern grid-ceiling and feature lighting.' },
-      { id: 'mercury-surface', name: 'Mercury Surface', categoryId: 'mercury-series', categoryName: 'Mercury Series', images: [`${B}/Mercury Series/Mercury Surface light.png`], description: 'Surface-mounted Mercury with ultra-slim profile and 120° beam spread.' },
+      { id: 'mercury-surface', name: 'Mercury Surface', categoryId: 'mercury-series', categoryName: 'Mercury Series', images: [`${B}/Mercury Series/Mercury Surface light.png`], description: 'Surface-mounted Mercury with ultra-slim profile and 120 degree beam spread.' },
     ],
   },
   {
@@ -50,7 +48,7 @@ export const CATEGORIES: Category[] = [
     thumbnail: null,
     products: [
       { id: 'blaz', name: 'Blaz', categoryId: 'led-bulbs', categoryName: 'LED Bulbs', images: [`${B}/LED Bulbs/Blaz.png`], description: 'Energy-efficient Blaz LED bulb with E27 base and warm white output.' },
-      { id: 'lomo', name: 'Lomo', categoryId: 'led-bulbs', categoryName: 'LED Bulbs', images: [`${B}/LED Bulbs/Lomo.png`], description: 'Compact Lomo bulb with 270° beam angle for complete room illumination.' },
+      { id: 'lomo', name: 'Lomo', categoryId: 'led-bulbs', categoryName: 'LED Bulbs', images: [`${B}/LED Bulbs/Lomo.png`], description: 'Compact Lomo bulb with 270 degree beam angle for complete room illumination.' },
       { id: 'range-bulb', name: 'Range Bulb', categoryId: 'led-bulbs', categoryName: 'LED Bulbs', images: [`${B}/LED Bulbs/Range.png`], description: 'Range series LED bulb available in 7W, 9W, 12W, 15W and 18W variants.' },
     ],
   },
@@ -110,7 +108,7 @@ export const CATEGORIES: Category[] = [
     thumbnail: `${B}/Panel Lights/04_Panel-Lights1p.jpg.jpeg`,
     products: [
       { id: 'pl-5', name: 'PL-5', categoryId: 'panel-lights', categoryName: 'Panel Lights', images: [`${B}/Panel Lights/PL-5.png`], description: 'PL-5 slim edge-lit panel light for drop ceilings, 600x600mm profile.' },
-      { id: 'pl-14', name: 'PL-14', categoryId: 'panel-lights', categoryName: 'Panel Lights', images: [`${B}/Panel Lights/PL-14.png`], description: 'PL-14 ultra-thin panel light with uniform luminance and UGR<19 rating.' },
+      { id: 'pl-14', name: 'PL-14', categoryId: 'panel-lights', categoryName: 'Panel Lights', images: [`${B}/Panel Lights/PL-14.png`], description: 'PL-14 ultra-thin panel light with uniform luminance and UGR less than 19 rating.' },
     ],
   },
   {
@@ -160,7 +158,7 @@ export const CATEGORIES: Category[] = [
           { wattage: '200W', images: [`${B}/Premium Products/Hile Flood Light (MAXON)/MAXON Flood light/floodlight picture/200W/200W.png`] },
           { wattage: '300W', images: [`${B}/Premium Products/Hile Flood Light (MAXON)/MAXON Flood light/floodlight picture/300W/300W.png`] },
         ],
-        description: 'MAXON Hile premium flood light with die-cast housing, available 50W–300W.',
+        description: 'MAXON Hile premium flood light with die-cast housing, available 50W to 300W.',
       },
       {
         id: 'hila-street-apex',
@@ -192,7 +190,7 @@ export const CATEGORIES: Category[] = [
           `${B}/Breaker Series/DSC_0724 copy.png`,
           `${B}/Breaker Series/DSC_0727 copy.png`,
         ],
-        description: 'Miniature Circuit Breaker series rated 6A–63A for residential and commercial panels.',
+        description: 'Miniature Circuit Breaker series rated 6A to 63A for residential and commercial panels.',
       },
     ],
   },
@@ -227,11 +225,10 @@ export const CATEGORIES: Category[] = [
     name: 'PVC Tapes',
     thumbnail: `${B}/PVC Tapes/15_PVC-Tapes1.jpg.jpeg`,
     products: [
-      { id: 'match-tape', name: 'Match', categoryId: 'pvc-tapes', categoryName: 'PVC Tapes', images: [`${B}/PVC Tapes/15_PVC-Tapes1.jpg.jpeg`], description: 'Match PVC insulation tape with strong adhesion and 90°C heat resistance.' },
+      { id: 'match-tape', name: 'Match', categoryId: 'pvc-tapes', categoryName: 'PVC Tapes', images: [`${B}/PVC Tapes/15_PVC-Tapes1.jpg.jpeg`], description: 'Match PVC insulation tape with strong adhesion and 90 degree heat resistance.' },
       { id: 'klas-tape', name: 'Klas', categoryId: 'pvc-tapes', categoryName: 'PVC Tapes', images: [`${B}/PVC Tapes/15_PVC-Tapes1.jpg.jpeg`], description: 'Klas heavy-duty PVC tape for electrical insulation and harness wrapping.' },
     ],
   },
 ];
 
-// Flat list of all products for search
 export const ALL_PRODUCTS: Product[] = CATEGORIES.flatMap(cat => cat.products);
